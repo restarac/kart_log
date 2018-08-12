@@ -8,12 +8,12 @@ RSpec.describe Summary::Parser, '.from_file' do
 
   it 'skips the header' do
     archive = subject.from_file(only_header_input)
-    expect(archive.values).to be_empty
+    expect(archive.records).to be_empty
   end
 
   it 'load the data from a file' do
     archive = subject.from_file(one_pilote_input)
-    expect(archive.values.first).to_not be_nil
+    expect(archive.records.first).to_not be_nil
   end
 
   context 'when has tabs' do
@@ -21,7 +21,7 @@ RSpec.describe Summary::Parser, '.from_file' do
 
     it 'load the data from a file' do
       archive = subject.from_file(data_with_tabs_input)
-      expect(archive.values.first).to_not be_nil
+      expect(archive.records.first).to_not be_nil
     end
   end
 end
