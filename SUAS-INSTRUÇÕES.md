@@ -10,6 +10,20 @@ bundle install
 
 ### Como executar
 
+### Console
+
+```
+irb -I . -r environment.rb
+```
+
+#### Testes
+
+```
+bundle exec rspec
+```
+
+#### Aplicação
+
 ```shellscript
 bundle exec ruby summarization.rb input.log
 ```
