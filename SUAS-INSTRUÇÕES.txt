@@ -1,0 +1,5 @@
+### Como executar
+
+```shellscript
+ruby summarization.rb input.log
+```
