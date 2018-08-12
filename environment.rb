@@ -7,5 +7,5 @@ require 'bundler'
 
 Bundler.setup(:default)
 
-require "lib/summary"
+require 'lib/summary'
 Bundler.require(:default)

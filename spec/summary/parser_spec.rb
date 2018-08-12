@@ -3,8 +3,8 @@
 RSpec.describe Summary::Parser, '.from_file' do
   subject { described_class }
 
-  let(:only_header_input) { "spec/fixture/parser_spec/only_header_input.log" }
-  let(:one_pilote_input) { "spec/fixture/parser_spec/one_pilot_input.log" }
+  let(:only_header_input) { 'spec/fixture/parser_spec/only_header_input.log' }
+  let(:one_pilote_input) { 'spec/fixture/parser_spec/one_pilot_input.log' }
 
   it 'skips the header' do
     archive = subject.from_file(only_header_input)
@@ -17,7 +17,7 @@ RSpec.describe Summary::Parser, '.from_file' do
   end
 
   context 'when has tabs' do
-    let(:data_with_tabs_input) { "spec/fixture/parser_spec/data_with_tabs_input.log" }
+    let(:data_with_tabs_input) { 'spec/fixture/parser_spec/data_with_tabs_input.log' }
 
     it 'load the data from a file' do
       archive = subject.from_file(data_with_tabs_input)
