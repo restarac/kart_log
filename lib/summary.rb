@@ -3,4 +3,8 @@
 module Summary
 end
 
-require "lib/sumary/parser"
+require "lib/summary/parser"
+require "lib/summary/turn"
+require "lib/summary/pilot"
+require "lib/summary/record"
+require "lib/summary/archive"

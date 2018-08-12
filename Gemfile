@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gem 'pry-byebug'
+
 group :test do
   gem 'faker'
   gem 'rspec'

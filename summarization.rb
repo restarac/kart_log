@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+
 require 'rubygems'
 require 'bundler'
 
 Bundler.setup(:default)
 
 require "lib/summary"
+Bundler.require(:default)
 
 file_path = ARGV.first
 
@@ -20,3 +23,4 @@ check_params! file_path
 
 puts "Begining the import of the #{file_path}"
 summary = Summary::Parser.from_file(file_path)
+puts summary.inspect

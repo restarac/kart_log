@@ -9,8 +9,8 @@ module Summary
       @turns = []
     end
 
-    def add_turn(turn)
-      @turns << Turn.new(cod: turn, time: turn_time, speed: turn_speed)
+    def add_turn(cod:, time:, speed:)
+      @turns << Turn.new(cod: cod, time: time, speed: speed)
     end
 
     def self.find_by(code_and_name)
@@ -24,13 +24,15 @@ module Summary
         end
   
         def pilot(code_and_name)
-          code, name = code_and_name.split(' - ')
+          code, name = code_and_name.split(' – ')
+
+          persisted_pilot = pilots.select{ |p| p.code == code }.first
   
-          persisted_pilot = pilots.select{ |p| p.code == cod }
-  
-          insert_new_pilot(code, name) unless persisted_pilot
-  
-          persisted_pilot
+          if persisted_pilot
+            persisted_pilot
+          else
+            insert_new_pilot(code, name)
+          end
         end
   
         private
@@ -38,6 +40,7 @@ module Summary
         def insert_new_pilot(code, name)
           persisted_pilot = Pilot.new(code, name)
           @pilots << persisted_pilot
+          persisted_pilot
         end
       end
     end

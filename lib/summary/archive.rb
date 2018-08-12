@@ -7,7 +7,7 @@ module Summary
     end
 
     def add(pilot)
-      @values << record
+      @values << pilot
     end
   end
 end
