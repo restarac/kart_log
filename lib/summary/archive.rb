@@ -2,12 +2,22 @@
 
 module Summary
   class Archive
+    attr_reader :records, :pilots
+
     def initialize
-      @values = []
+      @records = []
+      @pilots = {}
     end
 
-    def add(pilot)
-      @values << pilot
+    def add(record)
+      @records << record
+      @pilots[record.pilot.code] = record.pilot
+
+      true
+    end
+
+    def ranking
+      Summary::Ranking.new @pilots.values
     end
   end
 end

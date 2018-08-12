@@ -56,8 +56,9 @@ RSpec.describe Summary::Pilot do
 
     it 'returns the time total in milliseconds' do
       subject.add_turn number: '1', time: '1:07.011', speed: '41,528'
+      subject.add_turn number: '2', time: '1:02.011', speed: '41,528'
 
-      expect(subject.time_total).to eq 67011
+      expect(subject.time_total).to eq 129022
     end
 
     context 'when time has only milliseconds' do

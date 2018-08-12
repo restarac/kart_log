@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'environment'
+require File.expand_path('environment', __dir__)
 
 file_path = ARGV.first
 
@@ -15,4 +15,5 @@ check_params! file_path
 
 puts "Begining the import of the #{file_path}"
 summary = Summary::Parser.from_file(file_path)
-puts summary.ranking.to_s
+
+puts summary.ranking.show
